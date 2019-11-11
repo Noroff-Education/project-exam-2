@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *'); 
 //Creates a class called Contact
 class Establishment
 {

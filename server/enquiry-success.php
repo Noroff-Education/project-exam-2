@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *'); 
 //Creates a class called Enquiry
 class Enquiry
 {
@@ -16,6 +17,9 @@ $newEnquiry->clientName = $_POST["clientName"];
 $newEnquiry->email = $_POST["email"];
 $newEnquiry->checkin = $_POST["checkin"];
 $newEnquiry->checkout = $_POST["checkout"];
+$newEnquiry->adults = $_POST["adults"];
+$newEnquiry->children = $_POST["children"];
+$newEnquiry->notes = $_POST["notes"];
 
 //Adds object to array
 $enquiriesList = file_get_contents('enquiries.json');
