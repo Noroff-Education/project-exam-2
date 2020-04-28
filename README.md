@@ -9,7 +9,7 @@ https://us-central1-noroff-final-exam.cloudfunctions.net/api/v1/
 
 You will need to add a key called `key` with your access key as its value to the header of every request to the API.
 
-We will also add a content type to the header, though this is not necessary for GET calls.
+We will also add a content type to the header, though this is not necessary for `GET` and `DELETE` calls.
 
 You can add header values using the second parameter of the fetch call.
 
@@ -244,6 +244,81 @@ fetch(url, FETCH_OPTIONS)
 ```
 
 ---
+
+> There is no PATCH method for enquiries
+
+---
+
+## Contact messages
+
+Contact messages have the following properties:
+
+```ts
+name: string
+email: string
+message: string
+```
+
+
+### Fetch all contacts
+
+```js
+const url = BASE_URL + "contacts";
+
+fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j))
+```
+
+---
+
+### Fetch one contact
+
+```js
+const id = "an-id-to-fetch";
+const url = BASE_URL + "contacts/" + id;
+
+fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j))
+```
+
+---
+
+### Create a contact
+
+```js
+const url = BASE_URL + "contacts";
+
+const data = {
+    "name": "Fred The Cow",
+    "email": "fred@cowstuff.no",
+    "message": "What's the haps, chaps?",
+};
+
+FETCH_OPTIONS.method = "POST";
+FETCH_OPTIONS.body = JSON.stringify(data);
+
+fetch(url, FETCH_OPTIONS)
+    .then((r) => r.json())
+    .then((j) => console.log(j));
+```
+
+---
+
+### Delete an contact
+
+```js
+const id = "id-of-contact-to-delete";
+const url = BASE_URL + "contacts/" + id;
+
+FETCH_OPTIONS.method = "DELETE";
+
+fetch(url, FETCH_OPTIONS)
+```
+
+---
+
+> There is no PATCH method for contacts
+
+---
+
 ---
 
 ## PHP localhost version
