@@ -170,7 +170,6 @@ Postman headers - same as GET request.
 Body:
 
 <img src="images/delete-establishment-body.png" style="width:100%;max-width:700px" />
----
 
 ---
 
@@ -248,7 +247,6 @@ fetch(url, FETCH_OPTIONS)
 ---
 
 ## PHP localhost version
-This readme file will give you the tools you need to complete the project and explains what the different files are and how to use them.
 
 A very basic scaffolding using PHP has been created for you to use.
 
