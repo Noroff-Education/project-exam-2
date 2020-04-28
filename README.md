@@ -1,5 +1,184 @@
 # HOLIDAZE - HOTEL BOOKING SITE
 
+## Hosted API version
+
+Base URL
+```js
+https://us-central1-noroff-final-exam.cloudfunctions.net/api/v1/
+```
+
+You will need to add a key called `key` with your access key as its value to the header of every request to the API.
+
+We will also add a content type to the header, though this is not necessary for GET calls.
+
+You can add header values using the second parameter of the fetch call.
+
+### Constants
+
+`src/constants.js`:
+```js
+const KEY = "your-key";
+const BASE_URL = "https://us-central1-noroff-final-exam.cloudfunctions.net/api/";
+const FETCH_OPTIONS = {
+    headers: {
+        "Content-Type": "application/json",
+        key: KEY,
+    },
+};
+```
+
+### Establishments
+
+Establishments have the following properties:
+
+```ts
+name: string
+email?: string
+image?: string
+price?: number
+maxGuests?: number
+lat?: number
+lng?: number
+description?: string
+address?: string
+selfCatering?: boolean
+```
+
+`?` means a property is optional. Only `name` is required.
+
+### Fetch all establishments - a `GET` request
+
+`GET` is the default request mode.
+
+```js
+import { BASE_URL, FETCH_OPTIONS } from "../path/to/constants";
+
+const url = BASE_URL + "establishments";
+
+fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j));
+```
+
+In Postman. 
+
+> Every request needs the `key` set in Headers.
+
+<img src="images/get-establishments.png" style="width:100%;max-width:700px" />
+
+---
+
+### Fetch one establishment - a `GET` request
+
+```js
+const id = "id-of-establishment"
+
+const url = BASE_URL + "establishments/" + id;
+
+fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j))
+```
+
+In Postman.
+
+<img src="images/get-establishment-by-id.png" style="width:100%;max-width:700px" />
+
+---
+
+### Create an establishment - a `POST` request
+
+```js
+import { BASE_URL, FETCH_OPTIONS } from "../path/to/constants";
+
+const url = BASE_URL + "establishments";
+
+// the data we want to send
+const newEstablishment = {
+    "name": "A hotel name",
+    "email": "someone@email.com",
+    "image": "path/to/image",
+    // ...other properties
+};
+
+// when creating an establishment we need to use the POST method
+FETCH_OPTIONS.method = "POST";
+
+// serialise the data
+FETCH_OPTIONS.body = JSON.stringify(newEstablishment);
+
+// send every
+fetch(url, FETCH_OPTIONS)
+    .then((r) => r.json())
+    .then((j) => console.log(j));
+
+```
+
+In Postman.
+
+Headers.
+
+<img src="images/post-establishment-headers.png" style="width:100%;max-width:700px" />
+
+Body.
+
+<img src="images/post-establishment-body.png" style="width:100%;max-width:700px" />
+
+---
+
+### Update an establishment - a `PATCH` request
+
+```js
+const id = "id-of-establishment-to-update";
+
+const url = BASE_URL + "establishments/" + id;
+
+const updatedEstablishment = {
+    "name": "Updated name",
+    "email": "updated@email.com",    
+    // ...other properties
+};
+
+FETCH_OPTIONS.method = "PATCH";
+
+FETCH_OPTIONS.body = JSON.stringify(updatedEstablishment);
+
+fetch(url, FETCH_OPTIONS)
+    .then((r) => r.json())
+    .then((j) => console.log(j));
+```
+
+Postman headers - same as POST request.
+
+Body:
+
+<img src="images/patch-establishment-body.png" style="width:100%;max-width:700px" />
+
+---
+
+### Delete an establishment - a `DELETE` request
+
+```js
+const id = "id-of-establishment-to-delete";
+
+const url = BASE_URL + "establishments/" + id;
+
+FETCH_OPTIONS.method = "DELETE";
+
+fetch(url, FETCH_OPTIONS)
+```
+
+Postman headers - same as GET request.
+
+Body:
+
+<img src="images/delete-establishment-body.png" style="width:100%;max-width:700px" />
+---
+
+
+---
+
+
+---
+
+
+## PHP localhost version
 This readme file will give you the tools you need to complete the project and explains what the different files are and how to use them.
 
 A very basic scaffolding using PHP has been created for you to use.
