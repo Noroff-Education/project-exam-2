@@ -27,7 +27,7 @@ const FETCH_OPTIONS = {
 };
 ```
 
-### Establishments
+## Establishments
 
 Establishments have the following properties:
 
@@ -46,13 +46,17 @@ selfCatering?: boolean
 
 `?` means a property is optional. Only `name` is required.
 
+Import these for every call:
+
+```js
+import { BASE_URL, FETCH_OPTIONS } from "../path/to/constants";
+```
+
 ### Fetch all establishments - a `GET` request
 
 `GET` is the default request mode.
 
 ```js
-import { BASE_URL, FETCH_OPTIONS } from "../path/to/constants";
-
 const url = BASE_URL + "establishments";
 
 fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j));
@@ -85,8 +89,6 @@ In Postman.
 ### Create an establishment - a `POST` request
 
 ```js
-import { BASE_URL, FETCH_OPTIONS } from "../path/to/constants";
-
 const url = BASE_URL + "establishments";
 
 // the data we want to send
@@ -156,7 +158,6 @@ Body:
 
 ```js
 const id = "id-of-establishment-to-delete";
-
 const url = BASE_URL + "establishments/" + id;
 
 FETCH_OPTIONS.method = "DELETE";
@@ -171,12 +172,80 @@ Body:
 <img src="images/delete-establishment-body.png" style="width:100%;max-width:700px" />
 ---
 
+---
+
+## Enquiries
+
+Enquiries have the following properties:
+
+```ts
+name: string
+email: string
+establishmentId: string
+checkIn: Date
+checkOut: Date
+```
+
+### Fetch all enquiries
+
+```js
+const url = BASE_URL + "enquiries";
+
+fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j))
+```
 
 ---
 
+### Fetch one enquiry
+
+```js
+const id = "an-id-to-fetch";
+const url = BASE_URL + "enquiries/" + id;
+
+fetch(url, FETCH_OPTIONS).then(r => r.json()).then(j => console.log(j))
+```
 
 ---
 
+### Create an enquiry
+
+```js
+const url = BASE_URL + "enquiries";
+
+// the data we want to send
+const data = {
+    "name": "Bob The Sheep",
+    "email": "bob@sheepstuff.no",
+    "establishmentId": "an-id",
+    "checkIn": "May 28 2020",
+    "checkOut": "May 29 2020"
+};
+
+FETCH_OPTIONS.method = "POST";
+
+FETCH_OPTIONS.body = JSON.stringify(data);
+
+// send every
+fetch(url, FETCH_OPTIONS)
+    .then((r) => r.json())
+    .then((j) => console.log(j));
+```
+
+---
+
+### Delete an enquiry
+
+```js
+const id = "id-of-enquiry-to-delete";
+const url = BASE_URL + "enquiries/" + id;
+
+FETCH_OPTIONS.method = "DELETE";
+
+fetch(url, FETCH_OPTIONS)
+```
+
+---
+---
 
 ## PHP localhost version
 This readme file will give you the tools you need to complete the project and explains what the different files are and how to use them.
