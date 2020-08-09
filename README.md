@@ -8,7 +8,7 @@ The **PHP localhost version** you can run on your own computer using something l
 
 ---
 
-Information on using the hosted version is [here](hosted-API).
+Information on using the hosted version is [here](hosted-API.md).
 
 ---
 
