@@ -2,7 +2,7 @@
 
 There are two versions of the API you can choose.
 
-The **hosted API version** you don't have to set up yourself, you will only need a key to use it. A key will be supplied to you if you choose this option - please contact Connor on Discord or via email to get a key: connor.brien@noroff.no.
+The **hosted API version** you don't have to set up yourself, you will only need a key to use it. A key will be supplied to you if you choose this option - please contact Connor on Discord or via email to get a key: connor.brien at noroff.no.
 
 You won't be able to change any code in this API.
 
