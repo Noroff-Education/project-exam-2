@@ -2,7 +2,11 @@
 
 There are two versions of the API you can choose.
 
-The **hosted API version** you don't have to set up yourself, you will only need a key to use it. A key will be supplied to you if you choose this option. You won't be able to change any code in this API.
+The **hosted API version** you don't have to set up yourself, you will only need a key to use it. A key will be supplied to you if you choose this option - please contact Connor on Discord or via email to get a key: connor.brien@noroff.no.
+
+You won't be able to change any code in this API.
+
+---
 
 The **PHP localhost version** you can run on your own computer using something like XAMPP. You will be able to change the code in this API (add fields or properties for example), but this does require manually setting the API up on your computer and a bit of PHP knowledge.
 
