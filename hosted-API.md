@@ -19,7 +19,7 @@ You can add header values using the second parameter of the fetch call.
 `src/constants.js`:
 ```js
 const KEY = "your-key";
-const BASE_URL = "https://us-central1-noroff-final-exam.cloudfunctions.net/api/";
+const BASE_URL = "https://us-central1-noroff-final-exam.cloudfunctions.net/api/v1/";
 const FETCH_OPTIONS = {
     headers: {
         "Content-Type": "application/json",
